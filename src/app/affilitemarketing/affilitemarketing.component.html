@@ -1,0 +1,173 @@
+<app-main-nav>
+
+  <mat-card class="media_marketing_wrapper">
+    <mat-card-content class="affiliateBanner_wrapper" *ngIf="afflist != '' && afflist != null">
+
+      <mat-toolbar>
+          <h3><span>Media Marketing</span> URL:   {{audiodeadline_full_url}} &nbsp; <input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy(afflist) (click)="showcopied()">
+          </h3>
+      </mat-toolbar>
+
+      <br>
+      <span class="afbanner_content">
+
+        <!--LOOP START-->
+
+
+
+        <mat-card class="inner_mat" *ngFor="let item of afflist">
+            <mat-card-content class="mat-card-imagecontain">
+                <!--   <img mat-card-image src=" https://cdn.pixabay.com/photo/2016/06/18/17/42/image-1465348_960_720.jpg">-->
+
+                <img mat-card-image src="{{apiservice.audio_img_folder_url}}{{item.image}}">
+            </mat-card-content>
+            <mat-card-content>
+                <mat-toolbar  class="action">
+                    <mat-toolbar-row >
+
+                        <mat-icon class="example-icon"> <i class="material-icons share">share </i></mat-icon>
+
+                        <a (click)="postinfb(item.sponsor,item.name,item.image,affiliatename)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
+
+                        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fapi.audiodeadline.com%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon></a>
+
+                        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Fapi.audiodeadline.com%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
+                        <span class="example-spacer"></span>
+
+                        <!--<input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy(item) (click)="showcopied()">-->
+
+                        <!-- <button mat-raised-button color="primary" class="button_grab">GRAB URL</button>-->
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </mat-card-content>
+        </mat-card>
+
+          <!--LOOP END -->
+      <!--  <mat-card class="inner_mat">
+          <mat-card-content class="mat-card-imagecontain"> <img mat-card-image src=" https://helpx.adobe.com/in/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg"></mat-card-content>
+          <mat-card-content>
+            <mat-toolbar  class="action">
+              <mat-toolbar-row >
+               <mat-icon class="example-icon"> <i class="material-icons">share </i></mat-icon>
+              <mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon>
+              <mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon>
+              <mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon>
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="primary" class="button_grab">GRAB URL</button>
+              </mat-toolbar-row>
+            </mat-toolbar>
+
+
+            </mat-card-content>
+        </mat-card>
+
+
+    <mat-card class="inner_mat">
+          <mat-card-content class="mat-card-imagecontain"> <img mat-card-image src=" https://helpx.adobe.com/in/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg"></mat-card-content>
+          <mat-card-content>
+            <mat-toolbar  class="action">
+              <mat-toolbar-row >
+               <mat-icon class="example-icon"> <i class="material-icons">share </i></mat-icon>
+              <mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon>
+              <mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon>
+              <mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon>
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="primary" class="button_grab">GRAB URL</button>
+              </mat-toolbar-row>
+            </mat-toolbar>
+
+
+            </mat-card-content>
+        </mat-card>-->
+      </span>
+
+
+
+
+    </mat-card-content>
+
+      <mat-card-content class="affiliateBanner_wrapper" *ngIf="artistxp_banners != '' && artistxp_banners != null">
+          <mat-toolbar>
+              <h3><span>Artistxp Sign Up Banners</span> &nbsp; URL: {{artistxp_full_url}} &nbsp; <input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy1(item) (click)="showcopied()"></h3>
+          </mat-toolbar>
+
+          <br>
+          <span class="afbanner_content">
+
+        <!--LOOP START-->
+
+        <mat-card class="inner_mat" *ngFor="let item of artistxp_banners">
+            <mat-card-content class="mat-card-imagecontain">
+                <!--   <img mat-card-image src=" https://cdn.pixabay.com/photo/2016/06/18/17/42/image-1465348_960_720.jpg">-->
+                     <img  mat-card-image src="{{apiservice.audiodeadline_fileurl}}/{{uploadfile}}/{{item.origimage}}">
+            </mat-card-content>
+            <mat-card-content>
+                <mat-toolbar  class="action">
+                    <mat-toolbar-row >
+
+                        <mat-icon class="example-icon"> <i class="material-icons">share </i></mat-icon>
+
+                           <a (click)="postinfb2(affiliatename,item.name,item.image)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
+
+                         <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon></a>
+
+                           <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
+
+
+                        <span class="example-spacer"></span>
+
+                        <!--<input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy1(item) (click)="showcopied()">-->
+
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </mat-card-content>
+        </mat-card>
+      </span>
+      </mat-card-content>
+
+    <!--  <mat-card-content class="affiliateBanner_wrapper">
+          <mat-toolbar>
+              <h3> Merchandise Banners </h3>
+          </mat-toolbar>
+          <br>
+          <span class="afbanner_content">
+
+        &lt;!&ndash;LOOP START&ndash;&gt;
+
+        <mat-card class="inner_mat" *ngFor="let item of merchandise_banners">
+            <mat-card-content class="mat-card-imagecontain">
+                &lt;!&ndash;   <img mat-card-image src=" https://cdn.pixabay.com/photo/2016/06/18/17/42/image-1465348_960_720.jpg">&ndash;&gt;
+                     <img  mat-card-image src="{{apiservice.audiodeadline_fileurl}}/{{uploadfile}}/{{item.origimage}}">
+            </mat-card-content>
+            <mat-card-content>
+                <mat-toolbar  class="action">
+                    <mat-toolbar-row >
+
+                        <mat-icon class="example-icon"> <i class="material-icons">share </i></mat-icon>
+
+                         <a (click)="postinfb3(affiliatename,item.name,item.image)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
+
+
+                         <a  href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fapi.audiodeadline.com%2Fsharetool23.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"><i class="fab fa-twitter"></i></mat-icon></a>
+
+                         <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Fapi.audiodeadline.com%2Fsharetool23.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
+
+
+                        <span class="example-spacer"></span>
+
+                        <input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy2(item) (click)="showcopied()">
+                          <a class="btn n-btnsocialsharenew btngrapurl" (click)="copyText('http://api.audiodeadline.com/sharetool23.php?media_id='+item.name+'&username='+username+'&image='+item.image)"><span>Grab URL</span></a>
+
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </mat-card-content>
+        </mat-card>
+      </span>
+      </mat-card-content>-->
+
+  </mat-card>
+
+
+
+
+</app-main-nav>

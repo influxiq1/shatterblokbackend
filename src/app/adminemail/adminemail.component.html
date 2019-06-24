@@ -1,0 +1,60 @@
+<app-main-nav>
+<mat-card class="ad_profileblockbody" *ngIf="modeldata">
+  <mat-card-subtitle class="ad_profileblockwrapper">
+    <mat-card-content class="ad_profileblock_left">
+      <!--  <mat-card-content class="ad_profileblock_left_big"> <img mat-card-image src="../../assets/images/admin_blocknewimg.jpg"></mat-card-content> -->
+      <!--<mat-card-content class="ad_profileblock_left_big"> <img mat-card-image src="{{apiservice.uplodeimg_url}}/{{modeldata.images[0]}}"></mat-card-content>-->
+      <mat-card-content class="ad_profileblock_left_big"> <img mat-card-image src="{{modelimage}}"></mat-card-content>
+      <mat-card-content class="ad_profileblock_left_small">
+        <ul>
+          <!-- <li><span><img src="../../assets/images/admin_blocknewimg.jpg"></span></li>-->
+          <li *ngFor="let item of modeldata.images" (click)="changeimg(item)">
+            <span><img src="{{apiService.uplodeimg_url}}/{{item}}">  </span>
+
+
+            <button class="setpic" mat-raised-button
+                    matTooltip="Set as Profile Picture" (click)="setprofilepictureimage(item)" type="button" [ngClass]="item==profileimg ? 'setpic_active2' : ''">
+            </button>
+            <button class="setpic3" mat-raised-button
+                    matTooltip="Set as Second Picture" (click)="setsecndpictureimage(item)" type="button" [ngClass]="item==secondimg ? 'setpic_active2' : ''">
+            </button>
+
+
+          </li>
+
+        </ul>
+      </mat-card-content>
+    </mat-card-content>
+    <mat-card-content class="ad_profileblock_right">
+      <h2>{{modeldata.name}}</h2>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>NAME:</label><span>{{modeldata.name}}</span> </mat-card-content>
+
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>LOCATION:</label><span>{{modeldata.location}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>AGE:</label><span>{{modeldata.age}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>Eye Color:</label><span>{{modeldata.eyecolor}}</span> </mat-card-content>
+
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>Hair Color:</label><span>{{modeldata.haircolor}}</span> </mat-card-content>
+
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>HEIGHT:</label><span>{{modeldata.height}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>WEIGHT:</label><span>{{modeldata.weight}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>BUST:</label><span>{{modeldata.bust}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>WAIST:</label><span>{{modeldata.waist}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>HIPS:</label><span>{{modeldata.hips}}</span> </mat-card-content>
+      <mat-card-content class="ad_profileblock_modeldetail"> <label>ETHNICITY:</label><span>{{modeldata.ethnicity}}</span> </mat-card-content>
+      <!--<mat-card-content class="ad_profileblock_modeldetail"> <span>(Arabic)</span> </mat-card-content>-->
+     <!-- <h3>  <a href="{{modeldata.instagramlink}}/" target="_blank"><img src="../../assets/images/insta-black-white_icon.png"><span>@{{modeldata.instagramlink}}</span></a></h3>-->
+      <h3 ><a href="https://www.instagram.com/{{(modeldata.instagramlink)}}" target="_blank"><img src="../../assets/images/insta-black-white_icon.png"><span>{{modeldata.instagramlink}}</span></a></h3>
+      <h3 *ngIf="modeldata.twitterlink"><a href="https://twitter.com/{{(modeldata.twitterlink)}}" target="_blank"><i class="fa fa-twitter"></i>@{{modeldata.twitterlink}}</a></h3>
+      <h3 *ngIf="modeldata.facebooklink"><a href="https://www.facebook.com/{{(modeldata.facebooklink)}}" target="_blank"><i class="fa fa-facebook"></i>{{modeldata.facebooklink}}</a></h3>
+      <h3 *ngIf="modeldata.modelmayhemlink"><a href="https://{{(modeldata.modelmayhemlink)}}" target="_blank"><img src="../../assets/images/instagram-icon4.png" class="instaicon">{{(modeldata.modelmayhemlink)}}</a></h3>
+
+      <!--<button mat-button [routerLink]="['/modeledit',modeldata._id]">Modify</button>-->
+      <mat-button-toggle-group class="btnmodellist">
+      <button mat-button [routerLink]="['/modeledit']">Edit Profile</button>
+      <button mat-button (click)="approve()">Approve</button>
+      <button mat-button (click)="decline()">Decline</button>
+      </mat-button-toggle-group>
+    </mat-card-content>
+  </mat-card-subtitle>
+</mat-card>
+</app-main-nav>

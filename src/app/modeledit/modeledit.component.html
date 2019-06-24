@@ -1,0 +1,156 @@
+<app-main-nav>
+<mat-card class="adminform">
+  <mat-card-header>
+    <mat-card-title>Edit Model</mat-card-title>
+
+  </mat-card-header>
+  <mat-card-content >
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field class="cdk-visually-hidden">
+          <input matInput placeholder="Id" formControlName="id">
+            </mat-form-field>
+      <mat-form-field>
+          <input [class.is-invalid]="myForm.controls['firstname'].invalid && myForm.controls['firstname'].touched" matInput placeholder="First Name" formControlName="firstname" (blur)="inputblur('firstname')">
+          <span  *ngIf="!myForm.controls['firstname'].valid && myForm.controls['firstname'].touched">firstname field can not be blank</span>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input [class.is-invalid]="myForm.controls['lastname'].invalid && myForm.controls['lastname'].touched" matInput placeholder="Last Name" formControlName="lastname">
+          <span  *ngIf="!myForm.controls['lastname'].valid && myForm.controls['lastname'].touched">lastname field can not be blank</span>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input [class.is-invalid]="myForm.controls['age'].invalid && myForm.controls['age'].touched" matInput placeholder="Age" formControlName="age">
+          <span  *ngIf="!myForm.controls['age'].valid && myForm.controls['age'].touched">Age field can not be blank</span>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input [class.is-invalid]="myForm.controls['phone'].invalid && myForm.controls['phone'].touched" matInput placeholder="Phone" formControlName="phone">
+          <span  *ngIf="!myForm.controls['phone'].valid && myForm.controls['phone'].touched">Phone field can not be blank</span>
+        </mat-form-field>
+
+        <mat-form-field>
+          <!--<input matInput placeholder="Input" formControlName="email">-->
+          <input [class.is-invalid]="myForm.controls['email'].invalid && myForm.controls['email'].touched" matInput placeholder="Email" formControlName="email" (blur)="inputblur('email')">
+          <span  *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">Email field can not be blank</span>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input [class.is-invalid]="myForm.controls['city'].invalid && myForm.controls['city'].touched" matInput placeholder="City" formControlName="city">
+          <span  *ngIf="!myForm.controls['city'].valid && myForm.controls['city'].touched">City field can not be blank</span>
+        </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [class.is-invalid]="myForm.controls['state'].invalid && myForm.controls['state'].touched" placeholder="Select State" formControlName="state">
+          <mat-option *ngFor="let item of stateslist" value="{{item.abbreviation}}">{{item.name}}</mat-option>
+        </mat-select>
+        <span  *ngIf="!myForm.controls['state'].valid && myForm.controls['state'].touched">State field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['ethnicity'].invalid && myForm.controls['ethnicity'].touched" matInput placeholder="Ethnicity" formControlName="ethnicity">
+        <span  *ngIf="!myForm.controls['ethnicity'].valid && myForm.controls['ethnicity'].touched">Ethnicity field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['height'].invalid && myForm.controls['height'].touched" matInput placeholder="Height" formControlName="height">
+        <span  *ngIf="!myForm.controls['height'].valid && myForm.controls['height'].touched">Height field can not be blank</span>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['eyecolor'].invalid && myForm.controls['eyecolor'].touched" matInput placeholder="Eyecolor" formControlName="eyecolor">
+        <span  *ngIf="!myForm.controls['eyecolor'].valid && myForm.controls['eyecolor'].touched">Eyecolor field can not be blank</span>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['haircolor'].invalid && myForm.controls['haircolor'].touched" matInput placeholder="Haircolor" formControlName="haircolor">
+        <span  *ngIf="!myForm.controls['haircolor'].valid && myForm.controls['haircolor'].touched">Haircolor field can not be blank</span>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['weight'].invalid && myForm.controls['weight'].touched" matInput placeholder="Weight" formControlName="weight">
+        <span  *ngIf="!myForm.controls['weight'].valid && myForm.controls['weight'].touched">Weight field can not be blank</span>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['bust'].invalid && myForm.controls['bust'].touched" matInput placeholder="Bust" formControlName="bust">
+        <span  *ngIf="!myForm.controls['bust'].valid && myForm.controls['bust'].touched">Bust field can not be blank</span>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['waist'].invalid && myForm.controls['waist'].touched" matInput placeholder="Waist" formControlName="waist">
+        <span  *ngIf="!myForm.controls['waist'].valid && myForm.controls['waist'].touched">Waist field can not be blank</span>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['hips'].invalid && myForm.controls['hips'].touched" matInput placeholder="Hips" formControlName="hips">
+        <span  *ngIf="!myForm.controls['hips'].valid && myForm.controls['hips'].touched">Hips field can not be blank</span>
+      </mat-form-field>
+
+      <mat-label>Body Type:</mat-label>
+    <!--  <mat-form-field>-->
+        <mat-checkbox formControlName="athletic" value="athletic">Athletic</mat-checkbox>
+        <!--<mat-form-field>-->
+        <mat-checkbox formControlName="slim" value="slim">Slim</mat-checkbox>
+        <mat-checkbox formControlName="toned" value="toned">Toned</mat-checkbox>
+        <mat-checkbox formControlName="voluptuous" value="voluptuous">Voluptuous</mat-checkbox>
+        <mat-checkbox formControlName="tattoos" value="tattoos">Tattoos</mat-checkbox>
+        <mat-checkbox formControlName="piercings" value="piercings">Piercings</mat-checkbox>
+      <!--</mat-form-field>-->
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['promotions'].invalid && myForm.controls['promotions'].touched" matInput placeholder="Promotions" formControlName="promotions">
+        <span  *ngIf="!myForm.controls['promotions'].valid && myForm.controls['promotions'].touched">Promotions field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['sales'].invalid && myForm.controls['sales'].touched" matInput placeholder="Sales" formControlName="sales">
+        <span  *ngIf="!myForm.controls['sales'].valid && myForm.controls['sales'].touched">Sales field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['retail'].invalid && myForm.controls['retail'].touched" matInput placeholder="Retail" formControlName="retail">
+        <span  *ngIf="!myForm.controls['retail'].valid && myForm.controls['retail'].touched">Retail field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea [class.is-invalid]="myForm.controls['descriptionbox'].invalid && myForm.controls['descriptionbox'].touched" matInput placeholder="Description Box*" formControlName="descriptionbox"></textarea>
+        <span  *ngIf="!myForm.controls['descriptionbox'].valid && myForm.controls['descriptionbox'].touched">Description Box field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="url" placeholder="Facebook Link" formControlName="facebooklink">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [class.is-invalid]="myForm.controls['instagramlink'].invalid && myForm.controls['instagramlink'].touched" matInput type="url" placeholder="Instagram Link" formControlName="instagramlink">
+        <span  *ngIf="!myForm.controls['instagramlink'].valid && myForm.controls['instagramlink'].touched">Instagram Link field can not be blank</span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="url" placeholder="Twitter Link" formControlName="twitterlink">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="url" placeholder="Modelmayhem Link" formControlName="modelmayhemlink">
+      </mat-form-field>
+
+
+      <div class="form-group col-xs-12">
+      <app-uploader uploadtype="multiple" [uploadedimages]="modeldataimages" [uploadpath]="modeluploadpath" [filepath]="modelfilepath"  [filenameval]="uploader" *ngIf="modeldata" [updatesecondimagesourceurl]="secondimageupdate" [updatesourceurl]="artistxpprofileimageupdate" [modeldataemail]="modeldata.email" [profileimgis]="profileimg" [secondimgis]="secondimg"></app-uploader>
+      </div>
+
+
+      <button mat-flat-button color="primary" class="updateit">Update </button>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+</app-main-nav>

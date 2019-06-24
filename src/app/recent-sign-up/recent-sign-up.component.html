@@ -1,0 +1,21 @@
+<app-main-nav>
+<mat-toolbar class="breadcrumb"> <a style="text-decoration: none;"> User Table &nbsp;/&nbsp; </a> RECENT SIGN-UPS </mat-toolbar>
+<div class="pendinglist">
+
+    <lib-listing    *ngIf="pendingapplication_view!=null && pendingapplication_view.length>0"
+                    [datasource]="pendingapplication_view" [skip]="pendingapplication_view_skip"
+                    [modify_header_array]="pendingapplication_view_modify_header1"
+                    [statusarr]="statusarray"
+                    [apiurl]="apiservice.domain"
+                    [deleteendpoint]="delurl"
+                    [updateendpoint]="updateurl"
+                    [jwttoken]="apiservice.jwttoken"
+                    [sourcedata]="tablename"
+                    [detail_datatype]="pendingapplication_view_detail_datatype"
+                    [detail_skip_array]="pendingapplication_view_detail_skip"
+                    [editroute]="editroute1">
+    </lib-listing>
+    <h3 *ngIf="pendingapplication_view==null || pendingapplication_view.length==0">No records found</h3>
+</div>
+</app-main-nav>
+

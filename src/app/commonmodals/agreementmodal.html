@@ -1,0 +1,21 @@
+<mat-card-content class="newsignmodal">
+
+    <h1>Digital Signature</h1>
+    <label>Full name</label>
+    <span class="example-form">
+        <label class="example-full-width">
+            <!--<input matInput placeholder="Sign Here" [(ngModel)]="fullname" >-->
+        </label>
+        <h2>DIGITALLY SIGNED BY:</h2>
+
+        <h3 *ngIf="fullname"> {{fullname}}</h3>
+
+        <h4>MAR 28, 2019</h4>
+
+        <h5>By selecting “agree”, the parties agree that this agreement may be electronically signed. The parties agree that the electronic signatures appearing on this agreement are the same as handwritten signatures for the purposes of validity, enforceability, and admissibility.</h5>
+
+        <!--<button mat-button [mat-dialog-close]="fullname" cdkFocusInitial>Agree</button>-->
+        <button mat-button mat-dialog-close>Cancel</button>
+    </span>
+
+</mat-card-content>

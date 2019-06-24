@@ -1,0 +1,23 @@
+<app-main-nav>
+  <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;">User Table  &nbsp;/&nbsp; </a> ACTIVE USERS </mat-toolbar>
+  <div class="pendinglist">
+
+  <lib-listing *ngIf="status_gretterthan_zero!=null && status_gretterthan_zero.length>0"
+               [datasource]="status_gretterthan_zero"
+               [skip]="status_gretterthan_zero_skip"
+               [modify_header_array]="status_gretterthan_zero_modify_header"
+               [jwttoken]="apiservice.jwttoken"
+               [sourcedata]="tablename"
+               [updateendpoint]="updateurl"
+               [statusarr]="statusarray"
+               [apiurl]="apiservice.domain"
+               [deleteendpoint]="delurl"
+               [detail_datatype]="status_gretterthan_zero_detail_datatype"
+               [detail_skip_array]="status_gretterthan_zero_detail_skip"
+               [editroute]="editroute1"
+               [url]="custom_link"
+               [pdf_link]="apiservice.Pdf_link">
+  </lib-listing>
+  <h3 *ngIf="status_gretterthan_zero==null || status_gretterthan_zero.length==0">No records found</h3>
+  </div>
+</app-main-nav>

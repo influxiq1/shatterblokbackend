@@ -1,0 +1,41 @@
+<app-main-nav>
+    <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;" href=""> Manage Dashboard &nbsp;&nbsp; </a> </mat-toolbar>
+<mat-card class="adminform">
+    <mat-card-header>
+        <mat-card-title>Manage Dashboard</mat-card-title>
+    </mat-card-header>
+    <mat-card-content >
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="cdk-visually-hidden">
+                <input matInput formControlName="created_by"  >
+            </mat-form-field>
+            <h4>Select Any one</h4>
+            <mat-form-field>
+                <select matInput formControlName="type" required matNativeControl (change)="changedata()">
+                    <option value="joqu">Joqu</option>
+                    <option value="audiodeadline">Audiodeadline</option>
+                </select>
+                <mat-error  *ngIf="!myForm.controls['type'].valid && myForm.controls['type'].touched">Type field can not be blank</mat-error>
+            </mat-form-field>
+
+            <h4>Content</h4>
+               <ck-editor  skin="moono-lisa" language="en" [fullPage]="true"  [(ngModel)]="ckeditorContent" [ngModelOptions]="{standalone: true}" (change)="onChange($event)"
+                   [config]="{autoParagraph:true ,extraAllowedContent:'map(*){*}[*];area(*){*}[*];head(*){*}[*];style(*){*}[*];img(*){*}[*];',contentsCss :'../managedashboard.component.css'}"
+                   debounce="500" >
+               </ck-editor>
+                <mat-error *ngIf ="errckeditor">Content field can not be blank</mat-error>
+                <mat-toolbar-row class="sub_btn_wrapper">
+                <button mat-button class="dbbutton">Submit</button>
+                </mat-toolbar-row>
+        </form>
+
+        <mat-form-field *ngIf=model_influencer_list?.length>
+            <mat-label>Versions</mat-label>
+            <select matInput matNativeControl (change)="showdata()" [(ngModel)]="modelid">
+                <option value={{item._id}} *ngFor="let item of model_influencer_list; let i = index">{{item.version}}</option>
+            </select>
+        </mat-form-field>
+
+    </mat-card-content>
+</mat-card>
+</app-main-nav>

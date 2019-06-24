@@ -1,0 +1,23 @@
+<mat-card-content class="newsignmodal artistxp_confirm_modal">
+
+  <h1>Digital Signature</h1>
+  <label>Full name</label>
+  <form class="example-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Sign Here" formControlName="fullname">
+    </mat-form-field>
+
+    <h2>DIGITALLY SIGNED BY:</h2>
+
+    <h3 *ngIf="myForm.controls['fullname'].value"> {{myForm.controls['fullname'].value}} </h3>
+
+    <!--<h4>MAR 28, 2019</h4>-->
+    <h4> {{today | date:'MMM d, yyyy'}}</h4>
+
+    <h5>By selecting “agree”, the parties agree that this agreement may be electronically signed. The parties agree that the electronic signatures appearing on this agreement are the same as handwritten signatures for the purposes of validity, enforceability, and admissibility.</h5>
+
+    <button mat-button [mat-dialog-close]="myForm.controls['fullname'].value" cdkFocusInitial>Agree</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+
+  </form>
+</mat-card-content>

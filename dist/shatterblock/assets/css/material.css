@@ -1,0 +1,55 @@
+
+
+/* mat-dialog css */
+
+.custom-modalbox .mat-dialog-container{ border: solid 5px #e4cde8!important; padding: 15px!important; width: 640px!important;}
+.custom-modalbox .mat-dialog-title {
+    margin: 0px 0!important;
+    display: block!important;
+    text-align: center!important;
+    padding: 5px!important;
+    background: #e4cde8!important;
+    color: #000000!important;
+    font-size: 24px!important;
+
+}
+
+
+.custom-modalbox .example-card{border: 1px solid #e4cde8!important; border-top: none!important; box-shadow: none!important; border-radius: 0px!important; padding: 10px 1%!important; text-align: center; height: auto!important; clear: both; overflow: hidden;}
+
+
+
+.custom-modalbox .mat-card-title{ display: block!important; text-align: center!important;}
+.custom-modalbox .mat-card-avatar{ display: block!important; text-align: center!important; margin: 0 auto!important; }
+.custom-modalbox .mat-card-header{  display: block!important; width: 35%!important; float: left!important;}
+.custom-modalbox .mat-card-content{  display: block!important; width: 64%!important; float: right!important; text-align: left!important;}
+.custom-modalbox .mat-card-content img{ width: 23.8%; margin: 0 0.5% 1px 0;}
+.custom-modalbox .mat-card-content p br{ display: none;}
+
+.custom-modalbox .mat-dialog-content{ display: block; padding: 0!important; margin: 0!important; width: 100%!important; border-bottom: 1px solid #e4cde8!important; min-height: inherit!important; }
+
+.custom-modalbox .mat-card-header-text{ margin: 15px 0 0 0!important;}
+
+.custom-modalbox .mat-dialog-container .mat-button{ min-width: 100px;     background: #7028a5!important;
+    color: rgb(255, 255, 255)!important; font-size: 18px!important;}
+
+.custom-modalbox .mat-dialog-content{ text-align: center!important;}
+.custom-modalbox .mat-dialog-actions{ text-align: center!important; padding: 10px 0 0 0!important; display: block!important; margin: 0px!important; min-height: inherit!important;}
+
+.custom-modalbox .mat-card-header-text{ margin: 0px!important; padding: 0px!important; text-align: left!important;}
+
+.custom-modalbox .mat-card-header .mat-card-title{ margin: 0px!important; text-align: left!important; padding: 0px!important; font-size: 16px!important; text-transform: capitalize!important;}
+
+
+
+ .mat-bottom-sheet-container{border: solid 5px #e4cde8!important; padding: 15px!important; width: 640px!important;}
+
+.mat-list-item{ height: auto!important;}
+
+.mat-list-item-content{background: #e4cde8!important; margin: 0px!important; padding: 10px!important; text-align: center; font-size: 18px!important; color: #000000!important; border: solid 1px #ffffff!important;}
+.mat-list-base{ padding-top: 0px!important;}
+
+
+ .mat-line{font-size: 18px!important; color: #000000!important;}
+
+/* mat-dialog css */

@@ -1,0 +1,13 @@
+<mat-card [formGroup]="myFrom">
+ <!-- <mat-form-field>
+    <input matInput type="number" formControlName="fname" >
+  </mat-form-field>-->
+<!--  <br>-->
+  <mat-form-field>
+    <input matInput type="number" formControlName="status">
+  </mat-form-field>
+  <br>
+  <mat-button-toggle (click)="onSubmit()">
+    submit
+  </mat-button-toggle>
+</mat-card>

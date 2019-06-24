@@ -1,0 +1,192 @@
+@media only screen and (max-width: 1600px) {
+    .model_actions .mat-button{ font-size: 14px!important;}
+}
+@media only screen and (max-width: 1400px) {
+    .content{ word-break: break-all}
+}
+@media only screen and (max-width: 1199px) {
+    .order-bg .view_order {
+        width: 95%;
+    }
+    .button_grab {
+        width: 85px!important;
+        line-height: 35px!important;
+    }
+    .affiliateBanner_wrapper .mat-toolbar {
+        padding: 0px 10px!important;
+        height: auto!important;
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 1040px) {
+    .mat-card-imagecontain { height: 220px; }
+    .action .mat-icon:nth-child(1){ font-size: 16px!important;}
+    .action .mat-icon{
+        padding: 5px;
+        margin: 2px;
+        width: 20px;
+        height: 20px;
+        font-size: 16px!important;
+    }
+    .action .share{ font-size: 20px!important; }
+}
+@media screen and (max-width: 960px) {
+
+    .media_marketing_wrapper {
+    padding: 16px!important;
+    }
+    .mat-header-cell {
+        display: none!important;
+    }
+    .mat-cell{
+        padding:0.5em 1em!important;
+    }
+    .mat-table {
+        border: 0;
+        vertical-align: middle
+    }
+    .mat-table caption {
+        font-size: 1em;
+    }
+    /*  Enable this to hide header
+    .mat-table .mat-header-cell {
+      border: 10px solid;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    */
+    .mat-table .mat-row {
+        border-bottom: 15px solid #ddd;
+        display: block;
+        height: auto!important;
+    }
+    /*
+    .mat-table .mat-row:nth-child(even) {background: #CCC}
+    .mat-table .mat-row:nth-child(odd) {background: #FFF}
+    */
+    .mat-table .mat-cell {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: 1em;
+        text-align: right;
+        min-height:30px;
+        height: auto;
+        margin-bottom: 0%;
+        position: relative;
+        padding-left: 40%!important;
+        word-break: break-all;
+    }
+    .mat-table .mat-cell:before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(title);
+        float: left;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: .85em;
+        position: absolute;
+        left: 20px;
+    }
+    .mat-table .mat-cell:after {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: .85em;
+        position: absolute;
+        left: 20px;
+    }
+    .mat-table .mat-cell:last-child {
+        border-bottom: 0;
+    }
+    .mat-table .mat-cell:first-child {
+        margin-top: 0%;
+    }
+    .mat-footer-row, .mat-header-row, .mat-row {
+        display: flex;
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-style: solid;
+        align-items: center;
+        box-sizing: border-box;
+        display: none;
+    }
+
+}
+@media only screen and (max-width: 668px) {
+    .affiliateBanner_wrapper .afbanner_content .mat-card { width: 49%;
+     margin-bottom: 2% !important;
+         margin-right: 2%;
+         }
+         .affiliateBanner_wrapper .afbanner_content .mat-card:nth-child(3n+3) {
+             margin-right: 2%!important;
+         }
+         .affiliateBanner_wrapper .afbanner_content .mat-card:nth-child(2n+2) {
+             margin-right: 0!important;
+         }
+}
+@media only screen and (max-width: 510px) {
+    .mat-paginator-container { justify-content: center!important; }
+    .newAgreement_wrapper h2 {
+        font-size: 20px;
+    }
+    .newAgreement_wrapper p {
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .s_getmyoffer_login_wrapper {
+        width:70% !important; padding: 26px 5%!important;  margin-bottom: 40px!important;
+    }
+    .s_getmyoffer .s_shatter_logo {
+        margin-top: 50px!important;
+    }
+
+}
+@media only screen and (max-width: 480px) {
+    .affiliateBanner_wrapper .afbanner_content .mat-card:nth-child(3n+3) {
+        margin-right: 0%!important;
+    }
+    .order_view1{
+        flex-direction: column!important;
+        padding: 0!important;
+    }
+    .order_view1 .mat-card-content {
+        width: auto!important;
+        background: #cccccc;
+        margin: 1px 0;
+        padding: 5px 15px;
+    }
+    .order_view1 .mat-card-content .mat-card-subtitle{ margin-top: 0;}
+    .affiliateBanner_wrapper .afbanner_content .mat-card {
+        width: 100%;
+        padding: 0!important;
+        margin-bottom: 4%!important;
+        margin-right: 0%;
+    }
+    .media_marketing_wrapper{ padding: 16px!important;}
+    .mat-card-imagecontain { height: 260px; }
+}
+@media only screen and (max-width: 360px) {
+    .order-bg .view_order table thead
+    th.mat-header-cell {
+        font-size: 14px!important;
+        padding-left: 5px;
+        text-align: center;
+    }
+    .billing_details .mat-list-item span { width: 40%; }
+    .billing_details .mat-list-item-content { font-size: 16px!important; }
+    .topbar { padding: 0!important; }
+    .mat-card { padding: 8px !important; }
+    .admin-list .searchbar{ height: auto!important; margin-bottom: 15px; flex-direction: column!important;  }
+}

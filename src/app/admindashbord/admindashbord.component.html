@@ -1,0 +1,86 @@
+<app-main-nav>
+
+        <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;"> User Table &nbsp;/&nbsp; </a> RECENT SIGN-UPS </mat-toolbar>
+        <div class="pendinglist">
+
+                <lib-listing    *ngIf="pendingapplication_view!=null && pendingapplication_view.length>0"
+                                [datasource]="pendingapplication_view" [skip]="pendingapplication_view_skip"
+                                [modify_header_array]="pendingapplication_view_modify_header1"
+                                [statusarr]="statusarray"
+                                [apiurl]="apiservice.domain"
+                                [deleteendpoint]="delurl"
+                                [updateendpoint]="updateurl"
+                                [jwttoken]="apiservice.jwttoken"
+                                [sourcedata]="tablename"
+                                [detail_datatype]="pendingapplication_view_detail_datatype"
+                                [detail_skip_array]="pendingapplication_view_detail_skip"
+                                [editroute]="editroute1">
+                </lib-listing>
+                <h3 *ngIf="pendingapplication_view==null || pendingapplication_view.length==0">No records found</h3>
+
+
+                <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;">User Table  &nbsp;/&nbsp; </a> ACTIVE USERS </mat-toolbar>
+
+                <lib-listing *ngIf="status_gretterthan_zero!=null && status_gretterthan_zero.length>0"
+                             [datasource]="status_gretterthan_zero"
+                             [skip]="status_gretterthan_zero_skip"
+                             [modify_header_array]="status_gretterthan_zero_modify_header"
+                             [jwttoken]="apiservice.jwttoken"
+                             [sourcedata]="tablename"
+                             [updateendpoint]="updateurl"
+                             [statusarr]="statusarray"
+                             [apiurl]="apiservice.domain"
+                             [deleteendpoint]="delurl"
+                             [detail_datatype]="status_gretterthan_zero_detail_datatype"
+                             [detail_skip_array]="status_gretterthan_zero_detail_skip"
+                             [editroute]="editroute1"
+                             [url]="custom_link"
+                             [pdf_link]="apiservice.Pdf_link"
+                             [searchList]="stateGroups">
+                </lib-listing>
+                <h3 *ngIf="status_gretterthan_zero==null || status_gretterthan_zero.length==0">No records found</h3>
+
+                <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;">User Table  &nbsp;/&nbsp; </a> Joqu Process Users </mat-toolbar>
+
+                <lib-listing *ngIf="joquuserlist!=null && joquuserlist.length>0"
+                                [datasource]="joquuserlist" [skip]="joquuserlist_skip"
+                                [modify_header_array]="joquuserlist_modify_header1"
+                                [statusarr]="joquuserlist_statusarray"
+                                [apiurl]="apiservice.domain"
+                                [jwttoken]="apiservice.jwttoken"
+                                [sourcedata]="tablename1">
+                </lib-listing>
+                <h3 *ngIf="joquuserlist==null || joquuserlist.length==0">No records found</h3>
+
+                <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;">Commission List  &nbsp;&nbsp; </a></mat-toolbar>
+
+                <lib-listing    *ngIf="allcommissions!=null && allcommissions.length>0"
+                                [datasource]="allcommissions" [skip]="allcommissions_skip"
+                                [modify_header_array]="allcommissions_modify_header1"
+                                [apiurl]="apiservice.domain"
+                                [jwttoken]="apiservice.jwttoken"
+                                [editroute]="editroutecommission"
+                              >
+                </lib-listing>
+                <h3 *ngIf="allcommissions==null || allcommissions.length==0">No records found</h3>
+
+                <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;">Order List  &nbsp; </a></mat-toolbar>
+
+                <lib-listing    *ngIf="allordersdata!=null && allordersdata.length>0"
+                                [datasource]="allordersdata" [skip]="allordersdata_skip"
+                                [modify_header_array]="allordersdata_modify_header1"
+                                [apiurl]="apiservice.domain"
+                                [jwttoken]="apiservice.jwttoken"
+                                [editroute]="editrouteorder">
+                </lib-listing>
+                <h3 *ngIf="allordersdata==null || allordersdata.length==0">No records found</h3>
+
+
+
+                <!-- <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;" href=""> User Table &nbsp;/&nbsp; </a> User List</mat-toolbar>
+
+                 <lib-listing *ngIf="model_pending_and_notpending_application_view!=null && model_pending_and_notpending_application_view.length>0"  [datasource]="model_pending_and_notpending_application_view" [skip]="model_pending_and_notpending_application_view_skip" [modify_header_array]="model_pending_and_notpending_application_view_modify_header" ></lib-listing>
+
+         -->
+        </div>
+</app-main-nav>

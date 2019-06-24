@@ -1,0 +1,14 @@
+<app-main-nav>
+
+  <mat-toolbar class="breadcrumb" *ngIf="commissiondetails[0]?.length>0"> <a style="text-decoration: none;">{{commissiondetails[0].username}}'s List &nbsp;&nbsp; </a></mat-toolbar>
+  <div class="pendinglist">
+    <lib-listing    *ngIf="commissiondetails!=null && commissiondetails.length>0"
+                [datasource]="commissiondetails" [skip]="commissiondetails_skip"
+                [modify_header_array]="commissiondetails_modify_header1"
+                [apiurl]="apiservice.domain"
+                [jwttoken]="apiservice.jwttoken"
+>
+</lib-listing>
+    <h3 *ngIf="commissiondetails==null || commissiondetails.length==0">No records found</h3>
+  </div>
+</app-main-nav>

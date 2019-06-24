@@ -1,0 +1,170 @@
+<app-main-nav>
+
+    <mat-card class="ad_profileblockbody" *ngIf="modeldata">
+        <mat-card-subtitle class="ad_profileblockwrapper">
+            <mat-card-content class="ad_profileblock_left">
+                <!--  <mat-card-content class="ad_profileblock_left_big"> <img mat-card-image src="../../assets/images/admin_blocknewimg.jpg"></mat-card-content> -->
+                <!--<mat-card-content class="ad_profileblock_left_big"> <img mat-card-image src="{{apiservice.uplodeimg_url}}/{{modeldata.images[0]}}"></mat-card-content>-->
+                <mat-card-content class="ad_profileblock_left_big"> <img mat-card-image src="{{modelimage}}"></mat-card-content>
+                <mat-card-content class="ad_profileblock_left_small">
+                    <ul class="img_wrapper">
+                        <!-- <li><span><img src="../../assets/images/admin_blocknewimg.jpg"></span></li>-->
+                        <!--                        <li *ngFor="let item of modeldata.images" (click)="changeimg(item)">-->
+                        <!--                        <li *ngFor="let item of modeldata.images">-->
+                        <!--                            <span><img src="{{apiservice.uplodeimg_url}}/{{item}}">  </span>-->
+
+                        <drag-scroll #nav>
+                            <li *ngFor="let item of modeldata.images">
+                                <img drag-scroll-item class="demo cursor" (click)="setprofilepictureimage(item)" src="{{apiservice.uplodeimg_url}}/{{item}}" />
+                            </li>
+                        </drag-scroll>
+
+
+                        <!--                            <button class="setpic" mat-raised-button-->
+                        <!--                                    matTooltip="Set as Profile Picture" (click)="setprofilepictureimage(item)" type="button" [ngClass]="item==profileimg ? 'setpic_active2' : ''">-->
+                        <!--                            </button>-->
+                        <!--                            <button class="setpic3" mat-raised-button-->
+                        <!--                                    matTooltip="Set as Second Picture" (click)="setsecndpictureimage(item)" type="button" [ngClass]="item==secondimg ? 'setpic_active2' : ''">-->
+                        <!--                            </button>-->
+
+
+                        <!--                        </li>-->
+                        <button class="arrow_back" (click)="moveLeft()"><i class="material-icons">keyboard_arrow_left</i></button>
+                        <button class="arrow_forward"(click)="moveRight()"><i class="material-icons">keyboard_arrow_right</i></button>
+                        <!--                        <button (click)="moveTo(2)">Last</button>-->
+                    </ul>
+                </mat-card-content>
+            </mat-card-content>
+            <mat-card-content class="ad_profileblock_right">
+                <h2>{{modeldata.name}}</h2>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>NAME:</label><span>{{modeldata.name}}</span> </mat-card-content>
+
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>LOCATION:</label><span>{{modeldata.location}}</span> </mat-card-content>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>AGE:</label><span>{{modeldata.age}}</span> </mat-card-content>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>Eye Color:</label><span>{{modeldata.eyecolor}}</span> </mat-card-content>
+
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>Hair Color:</label><span>{{modeldata.haircolor}}</span> </mat-card-content>
+
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>HEIGHT:</label><span>{{modeldata.height}}</span> </mat-card-content>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>WEIGHT:</label><span>{{modeldata.weight}}</span> </mat-card-content>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>BUST:</label><span>{{modeldata.bust}}</span> </mat-card-content>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>WAIST:</label><span>{{modeldata.waist}}</span> </mat-card-content>
+                <mat-card-content class="ad_profileblock_modeldetail"> <label>HIPS:</label><span>{{modeldata.hips}}</span> </mat-card-content>
+                <!--<mat-card-content class="ad_profileblock_modeldetail"> <span>(Arabic)</span> </mat-card-content>-->
+                <h3>  <a href="https://www.instagram.com/{{modeldata.instagramlink}}/" target="_blank"><img src="../../assets/images/insta-black-white_icon.png"><span>@{{modeldata.instagramlink}}</span></a></h3>
+                <!--<button mat-button [routerLink]="['/modeledit',modeldata._id]">Modify</button>-->
+                <button mat-button [routerLink]="['/modeledit']">Edit Profile</button>
+                <span class="onlyForDivider"></span>
+                <mat-card-content class="model_actions">
+                    <mat-card-title>Download the signed Affiliate Agreements:</mat-card-title>
+                    <button mat-button color="primary" (click)="shatterblokagreement()">Shatterblok Affiliate Agreement</button>
+                    <button mat-button color="primary" (click)="artistxpagreement()"> ArtistXP Affiliate Agreement</button>
+                </mat-card-content>
+
+            </mat-card-content>
+        </mat-card-subtitle>
+    </mat-card>
+
+
+    <mat-card class="banner1">
+        <mat-card-content class="inner_banner">
+            <span class="inner_container">
+            <mat-card-title>Media Marketing </mat-card-title>
+            <p>As a part of ShatterBlok division, Shatter Proof Models, you get paid to promote ArtistXP and AudioDeadline. Your power of persuasion with your followers will get you paid.  As an affiliate of AudioDeadline, every purchase your followers may make under your name, you get a percentage of the profit.  That continues in perpetuity!  Every purchase, whether it is a ticket sale or merchandise, you get paid for the rest of your lifetime.  This is the easiest revenue you will ever earn.  Post a picture in ShatterBlok, AudioDeadline, ArtistXP attire, your influence on your followers has them buying the same attire and you receive money for it.  The power is in your hands, and let’s face it, YOU’VE GOT the POWER!</p>
+
+
+                    <span class="footer_action">
+                        <img src="assets/images/audiodeadLogo.png">
+                        <img src="assets/images/artistxpLogo.png">
+
+                        <button mat-flat-button [routerLink]="['/affilitemarketing']"> promote now!</button>
+                    </span>
+            </span>
+        </mat-card-content>
+    </mat-card>
+
+
+    <mat-card class="banner2">
+        <mat-card-content class="inner_banner2">
+            <span class="content_section">
+                <mat-card-title> A powerful fan engagement platform </mat-card-title>
+                <mat-card-content class="inner_wrap">
+                <span class="inner_content">
+                    <img src="assets/images/joquLogo.png">
+                    <p>Joqu is now leveraging social influencer network to grow to bring in the fans! Social influence marketing (also known as influencer marketing)= A relatively new form of marketing that utilizes the social influence of certain individuals to impact consumer behavior. Social influencers are the key to a successful marketing campaign and increasing brand exposure as well as sales. Influencers Value Authenticity Just as Much as Brands Do.
+</p>
+
+                </span>
+                 <button mat-flat-button [routerLink]="['/joqudashboard']"> promote now!</button>
+                </mat-card-content>
+            </span>
+        </mat-card-content>
+    </mat-card>
+
+
+    <!--
+
+        <mat-card class="ad_audiodeadlinecontent_block1body">
+
+            <mat-card class="ad_audiodeadlinecontent_block1body_wrapper">
+
+                <mat-card-content class="ad_audiodeadlinecontent_block1body_1st">
+                    <span><img src="../../assets/images/adlogo.png" class="adlogo"></span>
+                    <h2>WE ARE AUDIODEADLINE <sup>We are created by artists, for artists</sup></h2>
+                    <p>Our motto is All Rise Together (ART) – and we take pride in the fact that our event is designed to helps artists, fans and other music enthusiasts move unilaterally in one single direction. Comprised of music lovers and artists, our mission is to showcase the magical moments of musical creativity - the good, the bad, and the inspiring. Fans will finally get to be witness the artist’s experience as they go through the emotional mastery of song production! Regardless of who you are, or what you’re doing, we would love for
+                        you to be part of our music industry revolution!</p>
+
+
+
+                </mat-card-content>
+                <mat-card-content class="ad_audiodeadlinecontent_block1body_2nd"><img src="../../assets/images/bnnrimg1.png"></mat-card-content>
+                <mat-card-content class="ad_audiodeadlinecontent_block1body_3rd">
+
+                    <img src="../../assets/images/icon1.png">
+                    <button mat-button [routerLink]="['/affilitemarketing']">Learn More</button>
+
+
+                </mat-card-content>
+
+
+
+            </mat-card>
+        </mat-card>
+    &lt;!&ndash;</mat-grid-list>&ndash;&gt;
+
+
+       &lt;!&ndash; <mat-grid-list cols="1" class="grid_template" >&ndash;&gt;
+    &lt;!&ndash;   <mat-grid-tile>&ndash;&gt;
+           &lt;!&ndash;<div [innerHTML]="_sanitizer.bypassSecurityTrustHtml(model_influencer_contents_viewlistin_decending_audio.content)"></div>&ndash;&gt;
+
+           <mat-card class="ad_audiodeadlinecontent_block2body">
+
+               <mat-card class="ad_audiodeadlinecontent_block2body_wrapper">
+
+                   <mat-card-content class="ad_audiodeadlinecontent_block2body_1st">
+                       <span><img src="../../assets/images/newjoqulogo.png" class="newjoqulogo"></span>
+                   </mat-card-content>
+
+                   <mat-card-content class="ad_audiodeadlinecontent_block2body_2nd">
+
+                       <h2>A powerful fan engagement platform</h2>
+                       <p><span>Joqu is now leveraging social influencer network to grow to bring in the fans!
+                    Social influence marketing (also known as influencer marketing)= A relatively new form of marketing that utilizes the social influence of certain individuals to impact consumer behavior. Social influencers are the key to a successful marketing campaign and increasing brand exposure as well as sales. Influencers Value Authenticity Just as Much as Brands Do.</span></p>
+
+                   </mat-card-content>
+
+                   <mat-card-content class="ad_audiodeadlinecontent_block2body_3rd">
+
+                       <img src="../../assets/images/newicon2.png">
+                       <button mat-button [routerLink]="['/joqudashboard']">Learn More</button>
+
+                   </mat-card-content>
+
+               </mat-card>
+           </mat-card>
+
+
+    -->
+
+
+</app-main-nav>

@@ -1,0 +1,40 @@
+<app-main-nav>
+  <mat-toolbar>Site Admin Settings</mat-toolbar>
+
+  <mat-card class="example-card adminform">
+    <mat-card-header>
+      <mat-card-title>Add Admin</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="adminform">
+        <mat-form-field>
+          <input matInput placeholder="Email id" [formControl]="myForm.controls['email']" (blur)="inputblur('email')" >
+          <mat-error  *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">Email field can not be blank</mat-error>
+          <span></span>
+        </mat-form-field>
+        <mat-card-content >
+          <button mat-flat-button color="primary" class="dbbutton">Add </button>
+        </mat-card-content>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <div  *ngIf="siteadminlist!=null || siteadminlist.length>0">
+    <div class="pendinglist">
+
+      <lib-listing    *ngIf="siteadminlist!=null && siteadminlist.length>0"
+                      [datasource]="siteadminlist" [skip]="siteadminlist_skip"
+                      [modify_header_array]="siteadminlist_modify_header1"
+                      [apiurl]="apiService.domain"
+                      [deleteendpoint]="delurl"
+                      [jwttoken]="apiService.jwttoken"
+                      [sourcedata]="tablename"
+      >
+      </lib-listing>
+    </div>
+  </div>
+  <div  *ngIf="siteadminlist==null && siteadminlist.length==0">
+    <h3 *ngIf="siteadminlist==null || siteadminlist.length==0">No records found</h3>
+  </div>
+
+</app-main-nav>

@@ -1,0 +1,15 @@
+<app-main-nav>
+
+
+  <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;">Commission List  &nbsp;&nbsp; </a></mat-toolbar>
+
+  <lib-listing    *ngIf="modelcommissions!=null && modelcommissions.length>0"
+                  [datasource]="modelcommissions" [skip]="modelcommissions_skip"
+                  [modify_header_array]="modelcommissions_modify_header1"
+                  [apiurl]="apiservice.domain"
+                  [jwttoken]="apiservice.jwttoken"
+                  [editroute]="editroutecommission"
+  >
+  </lib-listing>
+  <h3 *ngIf="modelcommissions==null || modelcommissions.length==0">No records found</h3>
+</app-main-nav>
