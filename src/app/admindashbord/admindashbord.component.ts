@@ -13,6 +13,9 @@ import {CookieService} from "ngx-cookie-service";
 export class AdmindashbordComponent implements OnInit {
     datasource:any;
     public id:any;
+    public username:any;
+    public lastname:any;
+    public firstname:any;
     public enroller:any;
     endpoint:any = 'datalist';
     notpendingapplication_view: any=[];
@@ -80,6 +83,11 @@ public loading = false;
 
         console.log(this.cookieService.getAll());
         this.id = this.cookieService.get('id');
+        this.firstname = this.cookieService.get('firstname');
+        this.lastname = this.cookieService.get('lastname');
+        if(this.lastname != null && this.lastname !='undefined'){
+        this.username = this.firstname +''+this.lastname;
+        }
         this.enroller = this.cookieService.get('enroller');
         console.log(this.id);
 
@@ -120,13 +128,14 @@ public loading = false;
 
     allcommission_for_model_func(){
         // let data = {source:'newcommision_view'};
-        let data={condition: {enroller: this.id},source: "new_newcommision_view"};
+        let data={condition: {parent: this.username},source: "new_newcommision_view"};
         console.log('data');
         console.log(data);
         this.apiservice.postaffilite(this.endpoint, data).subscribe( res => {
             let result: any;
             result = res;
-            console.log(res);
+            // console.log(res);
+            console.log('result');
             console.log(result);
            /* this.allcommissions=result.res;
             console.log('allcommissions');

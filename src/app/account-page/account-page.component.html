@@ -1,3 +1,84 @@
-<p>
-  is work
-</p>
+<app-main-nav>
+
+  <mat-toolbar>ShatterBlock Dashboard </mat-toolbar>
+  <mat-divider></mat-divider>
+  <mat-toolbar class="breadcrumb"> <a style="text-decoration: none;" href=""> Dashboard &nbsp;/&nbsp; </a> Add</mat-toolbar>
+
+  <mat-card class="example-card adminform">
+    <mat-card-header>
+      <mat-card-title>Go to Admin Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form #adminForm [formGroup]="myForm" (ngSubmit)="onSubmit()" class="adminform">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="* First Name" [formControl]="myForm.controls['firstname']" >
+            <mat-error  *ngIf="!myForm.controls['firstname'].valid && myForm.controls['firstname'].touched">First Name field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* Last Name" [formControl]="myForm.controls['lastname']" >
+            <mat-error  *ngIf="!myForm.controls['lastname'].valid && myForm.controls['lastname'].touched">Last Name field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* Phone" [formControl]="myForm.controls['phone']" >
+            <mat-error  *ngIf="!myForm.controls['phone'].valid && myForm.controls['phone'].touched">Phone field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* Email" [formControl]="myForm.controls['email']" >
+            <mat-error  *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">Email field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* Username" [formControl]="myForm.controls['username']" >
+            <mat-error  *ngIf="!myForm.controls['username'].valid && myForm.controls['username'].touched">Username field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="!id">
+            <input matInput placeholder="* Password" [formControl]="myForm.controls['password']" >
+            <mat-error  *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">Password field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="!id">
+            <input matInput placeholder="* Confirm Password" [formControl]="myForm.controls['confirmpassword']" >
+            <mat-error  *ngIf="!myForm.controls['confirmpassword'].valid && myForm.controls['confirmpassword'].touched">Confirm Password field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* Address" [formControl]="myForm.controls['address']" >
+            <mat-error  *ngIf="!myForm.controls['address'].valid && myForm.controls['address'].touched">Address field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* Address 2" [formControl]="myForm.controls['address2']" >
+            <mat-error  *ngIf="!myForm.controls['address2'].valid && myForm.controls['address2'].touched">Address2 field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* City" [formControl]="myForm.controls['city']" >
+            <mat-error  *ngIf="!myForm.controls['city'].valid && myForm.controls['city'].touched">City field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="State" [formControl]="myForm.controls['state']">
+              <mat-option *ngFor="let item of stateslist" value="{{item.abbreviation}}">{{item.name}}</mat-option>
+            </mat-select>
+            <mat-error  *ngIf="!myForm.controls['state'].valid && myForm.controls['state'].touched">State field can not be blank</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="* ZIP Code" [formControl]="myForm.controls['zipcode']" >
+            <mat-error  *ngIf="!myForm.controls['zipcode'].valid && myForm.controls['zipcode'].touched">ZIP Code field can not be blank</mat-error>
+          </mat-form-field>
+
+        </div>
+        <button mat-flat-button color="primary" class="dbbutton" [disabled]="!myForm.valid" >Add </button>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+
+</app-main-nav>
+

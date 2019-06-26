@@ -1052,7 +1052,7 @@ table th .mat-checkbox-inner-container {
     margin: 0 !important;
 }
 
-.affiliateBanner_wrapper .afbanner_content .mat-card {
+.affiliateBanner_wrapper .afbanner_content .inner_mat {
     width: 32.3%;
     padding: 0 !important;
     margin-bottom: 1% !important;
@@ -3203,3 +3203,6 @@ input:disabled{
 .main_group .form-group .place h4,h5{ font-size: 16px; }
 .upper_date .form-group .place{ display: flex; min-height: inherit!important; justify-content: center!important;  }
 .form_control{ width: 100%; }
+.abcd{
+ width: 32%;
+}

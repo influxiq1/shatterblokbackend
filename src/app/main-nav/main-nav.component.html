@@ -55,7 +55,8 @@
         list
         </i> Order List</a>
 
-      <a mat-list-item role="listitem" [routerLink]="['/commisionreport']" routerLinkActive="active" *ngIf="cookieService.get('type')=='admin'"><i class="fa fa-list-alt" aria-hidden="true"></i>Commision Report</a>
+      <a mat-list-item role="listitem" [routerLink]="['/commissionList']" routerLinkActive="active" *ngIf="cookieService.get('type')=='admin'"><i class="fa fa-list-alt" aria-hidden="true"></i>Commision Report</a>
+      <a mat-list-item role="listitem" [routerLink]="['/commissionList']" routerLinkActive="active" *ngIf="cookieService.get('type')=='model'"><i class="fa fa-list-alt" aria-hidden="true"></i>Commision Report</a>
 
       <a mat-list-item role="listitem"  *ngIf="cookieService.get('type')=='admin'" [routerLink]="['/adminlist']" routerLinkActive="active" ><i class="material-icons">
         people_outline
@@ -101,10 +102,10 @@
       </span>
       </button>
       <mat-menu #appMenu="matMenu">
-       <!-- <button mat-menu-item  *ngIf="cookieService.get('type')=='model'" (click)="editpage()">Settings</button>
+       <button mat-menu-item  *ngIf="cookieService.get('type')=='model'" (click)="editpage()">Settings</button>
         <button mat-menu-item  *ngIf="cookieService.get('type')=='admin'" (click)="editpage()">Settings</button>
-        <button mat-menu-item  *ngIf="cookieService.get('type')=='brand'" (click)="editpage()">Settings</button>-->
-        <button mat-menu-item routerLink="/modeledit">Settings</button>
+        <button mat-menu-item  *ngIf="cookieService.get('type')=='brand'" (click)="editpage()">Settings</button>
+        <!-- <button mat-menu-item routerLink="/modeledit">Settings</button> -->
         <button mat-menu-item (click)="help()">Contact Us</button>
         <button mat-menu-item (click)="logout()">Log out</button>
       </mat-menu>

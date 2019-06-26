@@ -37,7 +37,7 @@ public profile_img: any;
       let link = 'modeledit/' + this.user_id;
       this.router.navigate([link]);
     } else if (this.cookieService.get('type')=='admin') {
-      let link = 'admin-account/' + this.user_id;
+      let link = 'edit-admin/' + this.user_id;
       this.router.navigate([link]);
     } else if (this.cookieService.get('type')=='brand') {
       let link = 'modeledit/' + this.user_id;

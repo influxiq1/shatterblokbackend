@@ -18,7 +18,7 @@ export class AdminlistComponent implements OnInit {
   dataSource1: any ;
   public result: any;
   public endpoint ='datalist';
-  public editroute ='adminform';
+  public editroute ='edit-admin';
   adminlist: any=[];
   adminlist_skip: any= ['_id','firstname','lastname','username','type','unique_id','joqu_status','password'];
   adminlist_modify_header: any = {'email': 'Email', 'phone': 'Phone', 'state': 'State', 'status': 'Status', 'date': 'Data', 'name': 'Name', 'State': 'State' };

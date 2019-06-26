@@ -25,14 +25,14 @@
                 <mat-toolbar  class="action">
                     <mat-toolbar-row >
 
-                        <mat-icon class="example-icon"> <i class="material-icons share">share </i></mat-icon>
 
-                        <a (click)="postinfb(item.sponsor,item.name,item.image,affiliatename)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
+                        <a (click)="fbshareForAudiodeadline(item)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
 
-                        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fapi.audiodeadline.com%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon></a>
+                        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2F{{apiservice.audiodeadline_url}}%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon></a>
 
-                        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Fapi.audiodeadline.com%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
+                        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2F{{apiservice.audiodeadline_url}}%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
                         <span class="example-spacer"></span>
+                        <a href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=http%3A%2F%2F{{apiservice.audiodeadline_url}}%2Fsharetool22.php%3Ftype%3Dticketsale%26sponsorname%3D{{item.sponsor}}%26media_id%3D{{item.name}}%26image%3D{{item.image}}%26affiliate%3D{{affiliatename}}&posttype=link" target="_blank"><span><i class="fa fa-tumblr"></i></span></a>
 
                         <!--<input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy(item) (click)="showcopied()">-->
 
@@ -96,31 +96,56 @@
 
         <!--LOOP START-->
 
+
+
+        <!-- <div *ngFor="let item of artistxp_banners" >
+            <div  *ngIf="item.origimage !=null && item.origimage !=''">
+              <div class="abcd">
+              <div>
+                  <img src="{{apiservice.audiodeadline_fileurl}}/{{uploadfile}}/{{item.origimage}}">
+              </div>
+              <div>
+                  <a (click)="fbshareForArtistxp(item)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
+        
+                  <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon></a>
+        
+                    <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
+                    
+                    <a href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}&posttype=link" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-tumblr"></i></mat-icon></a>
+                      
+              </div>
+            </div>
+          </div>
+          </div> -->
+
         <mat-card class="inner_mat" *ngFor="let item of artistxp_banners">
-            <mat-card-content class="mat-card-imagecontain">
-                <!--   <img mat-card-image src=" https://cdn.pixabay.com/photo/2016/06/18/17/42/image-1465348_960_720.jpg">-->
+          <span *ngIf="item.origimage !=null && item.origimage !=''">
+            <mat-card-content class="mat-card-imagecontain" >
+                   <!-- <img mat-card-image src=" https://cdn.pixabay.com/photo/2016/06/18/17/42/image-1465348_960_720.jpg"> -->
                      <img  mat-card-image src="{{apiservice.audiodeadline_fileurl}}/{{uploadfile}}/{{item.origimage}}">
             </mat-card-content>
             <mat-card-content>
                 <mat-toolbar  class="action">
                     <mat-toolbar-row >
 
-                        <mat-icon class="example-icon"> <i class="material-icons">share </i></mat-icon>
-
-                           <a (click)="postinfb2(affiliatename,item.name,item.image)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
+                        
+                           <a (click)="fbshareForArtistxp(item)"><mat-icon class="example-icon"> <i class="fab fa-facebook-f"></i></mat-icon></a>
 
                          <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-twitter"></i></mat-icon></a>
 
                            <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-linkedin-in"></i></mat-icon></a>
-
+                           
+                           <a href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=http%3A%2F%2F{{artistxp_url_val}}%2Fsharetool2.php%3Fmedia_id%3D{{item.name}}%26username%3D{{affiliatename}}%26image%3D{{item.image}}&posttype=link" target="_blank"><mat-icon class="example-icon"> <i class="fab fa-tumblr"></i></mat-icon></a>
+                                
 
                         <span class="example-spacer"></span>
 
-                        <!--<input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy1(item) (click)="showcopied()">-->
+                        <!-- <input  mat-raised-button  type="button" value="GRAB URL" color="primary" class="button_grab" ngxClipboard [cbContent]= callforcopy1(item) (click)="showcopied()"> -->
 
                     </mat-toolbar-row>
                 </mat-toolbar>
             </mat-card-content>
+          </span>
         </mat-card>
       </span>
       </mat-card-content>
@@ -166,6 +191,7 @@
       </mat-card-content>-->
 
   </mat-card>
+
 
 
 

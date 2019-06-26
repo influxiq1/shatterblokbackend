@@ -38,6 +38,7 @@ export class ApiService {
     public audio_orderdetails = environment['audio_orderdetails'];
     public artistxpsharesignupurl = environment['artistxpsharesignupurl'];
     public audiodeadlineshareticketsaleurl = environment['audiodeadlineshareticketsaleurl'];
+    public audiodeadline_url = environment['audiodeadline_url'];
     files: UploadFile[];
     uploadInput: EventEmitter<UploadInput>;
     humanizeBytes: Function;

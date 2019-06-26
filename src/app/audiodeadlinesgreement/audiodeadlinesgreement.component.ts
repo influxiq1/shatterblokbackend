@@ -53,7 +53,8 @@ export class AudiodeadlinesgreementComponent implements OnInit {
       audiodeadline_agreement_date: new Date().getTime(),
       status: 3,
       id: this.cookieService.get('id'),
-      create_a_user: true
+      create_a_user: true,
+      name: this.name
     };
     let data1 = {data: data,source:'users'};
     console.log(data);

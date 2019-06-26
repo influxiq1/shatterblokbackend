@@ -38,6 +38,7 @@ import {AccountPageComponent} from "./account-page/account-page.component";
 import {RecentSignUpComponent} from "./recent-sign-up/recent-sign-up.component";
 import {ActiveUsersComponent} from "./active-users/active-users.component";
 import {CommissionListComponent} from "./commission-list/commission-list.component";
+import { FbComponent } from './fb/fb.component';
 
 const routes: Routes = [
   { path: "admin", component: AdminmanagementComponent, canActivate: [AuthGuard] },
@@ -76,14 +77,14 @@ const routes: Routes = [
   {path: 'updatesigninstatus/:path/:userid', component: UpdatesigninstatusComponent},
   // {path: 'modeledit/:modelid', component: ModeleditComponent},
   {path: 'modeledit', component: ModeleditComponent},
-  {path: 'admin-account/:id', component: AccountPageComponent},
+  {path: 'edit-admin/:id', component: AccountPageComponent, canActivate:[AuthGuard]},
   // {path: 'admin-account/:pagename', component: AccountPageComponent},
   {path: 'modeledit/:pagename', component: ModeleditComponent},
   // {path: 'joqudashboard/:id', component: JoqudashboardComponent, canActivate:[AuthGuard], resolve: {results: Resolveservice}, data: {source: 'getjoqustatus', condition: {myid:'id'}}},
   {path: 'joqudashboard', component: JoqudashboardComponent, canActivate:[AuthGuard], resolve: {results: Resolveservice}, data: {source: 'getjoqustatus', condition: {myid:'id'}}},
   {path: 'joquprocesslist', component: JoquprocesslistComponent, canActivate:[AuthGuard], resolve: {results: Resolveservice}, data: {source: 'datalist',condition: {"condition":{"status":1},source:'joquuser'}}},
   {path: 'orderdetails', component: OrderDetailsComponent},
-  {path: 'commissionList', component: CommissionListComponent},
+  {path: 'commissionList', component: CommissionListComponent, canActivate:[AuthGuard]},
 
   // {path: 'modelmyorders', component: ModelmyordersComponent, canActivate: [AuthGuard], resolve: { results: Resolveservice}, data: {server:'audiodeadline',source: 'datalist',condition: {"condition":{"userid_object":"5cb80dff74b8d41e0502fe77"},source: "order_view"}}},
   {path: 'modelmyorders', component: ModelmyordersComponent, canActivate: [AuthGuard], resolve: { results: Resolveservice}, data: {server:'audiodeadline',source: 'datalist',condition: {myid:"username"}}},
@@ -98,6 +99,7 @@ const routes: Routes = [
 
   {path: 'modelmycommissions', component: ModelcommissionsComponent, canActivate: [AuthGuard], resolve: { results: Resolveservice}, data: {server:'audiodeadline',source: 'datalist',condition: {myid:"commission"}}},
   {path: 'siteadminsettings', component: SiteadminsettingsComponent, canActivate: [AuthGuard]},
+  {path: 'facebook', component: FbComponent},
 
 
 

@@ -20,7 +20,7 @@ export class AdminformComponent implements OnInit {
   public endpoint1: any = 'datalist';
   constructor(public fb: FormBuilder, private cookieService: CookieService, public http: HttpClient, public apiService: ApiService, public router: Router, public route: ActivatedRoute) {
     this.apiService.getState().subscribe(res => {
-      let result;
+      let result:any;
       result = res;
       this.stateslist = result;
     }, error => {
@@ -126,12 +126,13 @@ export class AdminformComponent implements OnInit {
     }
     console.log(data);
     // let data1 = {data: data,source:'users'};
-    let data1;
-    if(this.myForm.controls['this.id'].value!=''){
+    let data1:any;
+    if(this.myForm.valid){
       console.log(1);
       data = this.myForm.value;
       data1 = {data: data,source:'users'};
-    }else{
+    }
+    else{
       console.log(2);
       data = {
         id:this.myForm.controls['id'].value,
@@ -158,7 +159,10 @@ export class AdminformComponent implements OnInit {
         console.log('okkk');
         this.myForm.reset();
       }
-    });
+    }, error => {
+      console.log('Oooops!');
+  });
   }
+
 
 }

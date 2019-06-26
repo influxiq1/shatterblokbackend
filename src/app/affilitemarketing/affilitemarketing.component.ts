@@ -4,6 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import { CookieService } from 'ngx-cookie-service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Resolveservice } from '../resolveservice';
+import { InitParams, FacebookService, UIResponse } from 'ngx-facebook';
 
 declare const FB: any;
 export interface DialogData {
@@ -24,23 +25,40 @@ public affiliatename: any;
 public audiodeadline_full_url: any;
 public artistxp_full_url: any;
 public email: any;
+public lastsharetime:any=0;
+public user_id: any;
 public endpoint: any='datalist';
 public uploadfile: any='banner';
 public artistxp_url_val: any ;
 
-  constructor(public apiservice: ApiService, public router: Router, private cookieService: CookieService, public dialog: MatDialog,public route: ActivatedRoute, public resolveservice: Resolveservice ) {
+  constructor(public FBS: FacebookService,public apiservice: ApiService, public router: Router, private cookieService: CookieService, public dialog: MatDialog,public route: ActivatedRoute, public resolveservice: Resolveservice ) {
+    // Facebook service (ngx-facebook) start
+    let initParams: InitParams = {
+      appId: '514543379015302',
+      xfbml: true,
+      version: 'v3.3'
+  };
+
+  FBS.init(initParams);
+
+
+  // Facebook service end
+
+
     console.log(this.apiservice.resetpassword);
     console.log(this.apiservice.audio_img_folder_url);
     console.log(this.cookieService.get('id'));
     this.email = this.cookieService.get('email');
+    this.user_id = this.cookieService.get('id');
     this.artistxp_url_val = apiservice.artistxp_url;
     console.log(this.artistxp_url_val);
 
-    this.audiodeadline_full_url = this.apiservice.audiodeadlineshareticketsaleurl +''+this.email ;
-    this.artistxp_full_url = this.apiservice.artistxpsharesignupurl+this.affiliatename +''+this.email ;
+    this.audiodeadline_full_url = this.apiservice.audiodeadlineshareticketsaleurl +''+this.user_id ;
+    
     if(this.cookieService.get('id')!='' && this.cookieService.get('id')!=null )
     {
       this.getdata();
+      this.artistxp_full_url = this.apiservice.artistxpsharesignupurl +''+this.user_id ;
     }
   }
 
@@ -83,11 +101,12 @@ public artistxp_url_val: any ;
     //Artistxp Sign Up Banners
 
     let data2={"type":9,"status":1};
-    this.data = {"condition": data2,source:'mediaview'};
+    this.data = {"condition": data2,source:'new_mediaview'};
     this.apiservice.postaffilite(this.endpoint, this.data).subscribe( res => {
       let result: any;
       result = res;
       this.artistxp_banners=result.res;
+      console.log('this.artistxp_banners');
       console.log(this.artistxp_banners);
     })
 
@@ -111,10 +130,73 @@ public artistxp_url_val: any ;
     });
   }
 
+// facebook share start
+
+fbshareForAudiodeadline(item:any) {
+
+  let currenttime =new Date().getTime();
+  let options: any = {};
+  console.log(item);
+
+    options = {
+      method: 'share',
+      href: this.apiservice.audiodeadline_php_url+'sharetool23.php?media_id='+item.name+'&username='+this.affiliatename+'&image='+item.image
+    };
+
+  
+
+  setTimeout(()=> {
+
+    if (currenttime - this.lastsharetime > 5000) {
+      this.FBS.ui(options)
+          .then((res: UIResponse) => {
+            // console.log('Got the users profile', res);
+          })
+          .catch(this.handleError);
+      this.lastsharetime = currenttime;
+    }
+
+  },500);
+
+}
+
+fbshareForArtistxp(item:any) {
+
+  let currenttime =new Date().getTime();
+  let options: any = {};
+  console.log(item);
+
+    options = {
+      method: 'share',
+      href: this.apiservice.artistxp_php_url +'sharetool2.php?media_id='+item.media_id+'&username='+item.username+'&image='+item.image
+    };
+
+  
+
+  setTimeout(()=> {
+
+    if (currenttime - this.lastsharetime > 5000) {
+      this.FBS.ui(options)
+          .then((res: UIResponse) => {
+            // console.log('Got the users profile', res);
+          })
+          .catch(this.handleError);
+      this.lastsharetime = currenttime;
+    }
+
+  },500);
+
+}
+
+private handleError(error) {
+  console.error('Error processing action', error);
+}
+
+
   callforcopy(item: any){
    // console.log(this.apiservice.audiodeadlineshareticketsaleurl);
     //audiodeadline ticket sale
-    return this.apiservice.audiodeadlineshareticketsaleurl+this.affiliatename;
+    return this.apiservice.audiodeadlineshareticketsaleurl+this.user_id;
 
     // return 'https://development.audiodeadline.com/'+this.affiliatename;
     // return 'http://api.audiodeadline.com/sharetool22.php?type=ticketsale&sponsorname='+item.sponsor+'&media_id='+item.name+'&image='+item.image+'&affiliate='+this.affiliatename;
@@ -123,7 +205,7 @@ public artistxp_url_val: any ;
 
   callforcopy1(item: any){
     //artistxp sign up
-    return this.apiservice.artistxpsharesignupurl+this.affiliatename;
+    return this.apiservice.artistxpsharesignupurl+this.user_id;
 
     // return 'https://development.artistxp.com/'+this.affiliatename;
     // return this.apiservice.audiodeadline_php_url+'sharetool2.php?media_id='+item.name+'&username='+this.affiliatename+'&image='+item.image;

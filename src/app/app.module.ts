@@ -74,6 +74,8 @@ import { AccountPageComponent } from './account-page/account-page.component';
 import { RecentSignUpComponent } from './recent-sign-up/recent-sign-up.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { CommissionListComponent } from './commission-list/commission-list.component';
+import { FbComponent } from './fb/fb.component';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -115,7 +117,8 @@ import { CommissionListComponent } from './commission-list/commission-list.compo
     AccountPageComponent,
     RecentSignUpComponent,
     ActiveUsersComponent,
-    CommissionListComponent
+    CommissionListComponent,
+    FbComponent
 
 
     //Resolveservice,
@@ -143,7 +146,8 @@ import { CommissionListComponent } from './commission-list/commission-list.compo
     MatIconModule,
     MatListModule,
     NgxUploaderModule,
-    DragScrollModule
+    DragScrollModule,
+    FacebookModule.forRoot(),
   ],
   providers: [CookieService,Resolveservice,ApiService,AuthGuard,prevroute],
   bootstrap: [AppComponent],

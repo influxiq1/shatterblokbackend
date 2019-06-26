@@ -37,7 +37,7 @@ public endpoint = 'addorupdatedata';
       console.log(`Dialog result: ${result}`);
       this.fullname = result;
       console.log('this.myForm');
-      console.log(this.fullname);
+      console.log(this.name);
     });
   }
 
@@ -50,7 +50,8 @@ public endpoint = 'addorupdatedata';
           shatterblok_sign: this.fullname,
           shatterblok_agreement_date: new Date().getTime(),
           status: 2,
-          id: this.cookieService.get('id')
+          id: this.cookieService.get('id'),
+          name: this.name
       };
       let data1 = {data: data,source:'users'};
       console.log(data);

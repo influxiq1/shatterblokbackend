@@ -15,6 +15,7 @@ export const environment = {
   audio_img_url: 'https://api.audiodeadline.com:6003/',
   audio_img_folder_url: 'https://api.audiodeadline.com/nodeserver/uploads/banner/',
   audiodeadline_php_url: 'https://api.audiodeadline.com/',
+  audiodeadline_url: 'api.audiodeadline.com/',
   artistxp_php_url: 'http://share.artistxp.com/',
   artistxp_url: 'share.artistxp.com',
   audiodeadline_fileurl : 'https://api.audiodeadline.com/nodeserver/uploads/',
